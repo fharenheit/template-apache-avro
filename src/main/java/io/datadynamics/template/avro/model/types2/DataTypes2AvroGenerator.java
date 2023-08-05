@@ -23,11 +23,6 @@ public class DataTypes2AvroGenerator {
         // Serialization
         //////////////////////////
 
-        Schema TIMESTAMP_MICROS_SCHEMA = LogicalTypes.timestampMicros().addToSchema(Schema.create(Schema.Type.LONG));
-        TimeConversions.TimestampMicrosConversion conversion = new TimeConversions.TimestampMicrosConversion();
-        long May_28_2015_21_46_53_221_843_instant = 1432849613221L * 1000 + 843;
-        Instant instant = conversion.fromLong(May_28_2015_21_46_53_221_843_instant, TIMESTAMP_MICROS_SCHEMA, LogicalTypes.timestampMicros());
-
         DataTypes2 t1 = DataTypes2.newBuilder()
                 .setTypeBoolean(false)
                 .setTypeInt(1)
@@ -43,15 +38,30 @@ public class DataTypes2AvroGenerator {
                 .setTypeBytesDecimal(new BigDecimal("11.11"))
                 .build();
 
+        DataTypes2 t2 = DataTypes2.newBuilder()
+                .setTypeBoolean(null)
+                .setTypeInt(1)
+                .setTypeFloat(null)
+                .setTypeDouble(null)
+                .setTypeLong(null)
+                .setTypeDate(LocalDate.now())
+                .setTypeString("Hello World")
+                .setTypeTimeInMicros(null)
+                .setTypeTimeInMillis(LocalTime.now())
+                .setTypeTimestampInMillis(Instant.now()) // Only GMT
+                .setTypeStringTimestampInMillis("2022-11-11 11:11:11.111")
+                .setTypeBytesDecimal(new BigDecimal("11.11"))
+                .build();
+
         DatumWriter<DataTypes2> datumWriter = new SpecificDatumWriter<>(DataTypes2.class);
         DataFileWriter<DataTypes2> dataFileWriter = new DataFileWriter<>(datumWriter);
         dataFileWriter.create(t1.getSchema(), new File("datatypes2.avro"));
         dataFileWriter.append(t1);
         dataFileWriter.append(t1);
         dataFileWriter.append(t1);
-        dataFileWriter.append(t1);
-        dataFileWriter.append(t1);
-        dataFileWriter.append(t1);
+        dataFileWriter.append(t2);
+        dataFileWriter.append(t2);
+        dataFileWriter.append(t2);
         dataFileWriter.close();
 
         //////////////////////////

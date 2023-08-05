@@ -1,7 +1,7 @@
 {
-  "namespace": "io.datadynamics.template.avro.model.types",
+  "namespace": "io.datadynamics.template.avro.model.types1",
   "type": "record",
-  "name": "TestTypes",
+  "name": "DataTypes1",
   "fields": [
     {
       "name": "typeBoolean",

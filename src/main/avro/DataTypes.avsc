@@ -62,7 +62,7 @@
       }
     },
     {
-      "name": "typeArray",
+      "name": "TypeArray",
       "type": {
         "name": "typeArray",
         "type": "array",
@@ -70,7 +70,7 @@
       }
     },
     {
-      "name": "typeMap",
+      "name": "TypeMap",
       "type": {
         "name": "typeMap",
         "type": "map",
@@ -78,7 +78,7 @@
       }
     },
     {
-      "name": "md5",
+      "name": "Md5",
       "type": {
         "type": "fixed",
         "size": 16,
@@ -86,7 +86,7 @@
       }
     },
     {
-      "name": "typeBytesDecimal",
+      "name": "TypeBytesDecimal",
       "type": "bytes",
       "logicalType": "decimal",
       "precision": 4,

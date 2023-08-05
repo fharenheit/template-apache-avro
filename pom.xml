@@ -67,11 +67,6 @@
         </dependency>
         <dependency>
             <groupId>org.apache.avro</groupId>
-            <artifactId>avro-maven-plugin</artifactId>
-            <version>1.11.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.avro</groupId>
             <artifactId>avro-compiler</artifactId>
             <version>1.11.1</version>
         </dependency>

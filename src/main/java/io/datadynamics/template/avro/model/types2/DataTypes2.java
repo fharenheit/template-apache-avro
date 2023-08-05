@@ -17,7 +17,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
   private static final long serialVersionUID = -6798112875297171145L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DataTypes2\",\"namespace\":\"io.datadynamics.template.avro.model.types2\",\"fields\":[{\"name\":\"TypeBoolean\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"TypeInt\",\"type\":[\"null\",\"int\"]},{\"name\":\"TypeLong\",\"type\":[\"null\",\"long\"]},{\"name\":\"TypeFloat\",\"type\":[\"null\",\"float\"]},{\"name\":\"TypeDouble\",\"type\":[\"null\",\"double\"]},{\"name\":\"TypeString\",\"type\":[\"null\",\"string\"]},{\"name\":\"TypeBytesDecimal\",\"type\":[\"null\",{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":4,\"scale\":2}]},{\"name\":\"TypeDate\",\"type\":[\"null\",{\"type\":\"int\",\"logicalType\":\"date\"}]},{\"name\":\"TypeTimeInMillis\",\"type\":[\"null\",{\"type\":\"int\",\"logicalType\":\"time-millis\"}]},{\"name\":\"TypeTimeInMicros\",\"type\":[\"null\",{\"type\":\"long\",\"logicalType\":\"time-micros\"}]},{\"name\":\"TypeTimestampInMillis\",\"type\":[\"null\",{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}]},{\"name\":\"TypeStringTimestampInMillis\",\"type\":[\"null\",{\"type\":\"string\",\"logicalType\":\"timestamp-millis\"}]}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"DataTypes2\",\"namespace\":\"io.datadynamics.template.avro.model.types2\",\"fields\":[{\"name\":\"TypeBoolean\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"TypeInt\",\"type\":[\"null\",\"int\"]},{\"name\":\"TypeLong\",\"type\":[\"null\",\"long\"]},{\"name\":\"TypeFloat\",\"type\":[\"null\",\"float\"]},{\"name\":\"TypeDouble\",\"type\":[\"null\",\"double\"]},{\"name\":\"TypeString\",\"type\":[\"null\",\"string\"]},{\"name\":\"TypeBytesDecimal\",\"type\":[\"null\",{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":6,\"scale\":2}]},{\"name\":\"TypeDate\",\"type\":[\"null\",{\"type\":\"int\",\"logicalType\":\"date\"}]},{\"name\":\"TypeTimeInMillis\",\"type\":[\"null\",{\"type\":\"int\",\"logicalType\":\"time-millis\"}]},{\"name\":\"TypeTimeInMicros\",\"type\":[\"null\",{\"type\":\"long\",\"logicalType\":\"time-micros\"}]},{\"name\":\"TypeTimestampInMillis\",\"type\":[\"null\",{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}]},{\"name\":\"TypeStringTimestampInMillis\",\"type\":[\"null\",{\"type\":\"string\",\"logicalType\":\"timestamp-millis\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -86,7 +86,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
   private java.lang.Float TypeFloat;
   private java.lang.Double TypeDouble;
   private java.lang.CharSequence TypeString;
-  private java.nio.ByteBuffer TypeBytesDecimal;
+  private java.math.BigDecimal TypeBytesDecimal;
   private java.time.LocalDate TypeDate;
   private java.time.LocalTime TypeTimeInMillis;
   private java.time.LocalTime TypeTimeInMicros;
@@ -115,7 +115,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
    * @param TypeTimestampInMillis The new value for TypeTimestampInMillis
    * @param TypeStringTimestampInMillis The new value for TypeStringTimestampInMillis
    */
-  public DataTypes2(java.lang.Boolean TypeBoolean, java.lang.Integer TypeInt, java.lang.Long TypeLong, java.lang.Float TypeFloat, java.lang.Double TypeDouble, java.lang.CharSequence TypeString, java.nio.ByteBuffer TypeBytesDecimal, java.time.LocalDate TypeDate, java.time.LocalTime TypeTimeInMillis, java.time.LocalTime TypeTimeInMicros, java.time.Instant TypeTimestampInMillis, java.lang.CharSequence TypeStringTimestampInMillis) {
+  public DataTypes2(java.lang.Boolean TypeBoolean, java.lang.Integer TypeInt, java.lang.Long TypeLong, java.lang.Float TypeFloat, java.lang.Double TypeDouble, java.lang.CharSequence TypeString, java.math.BigDecimal TypeBytesDecimal, java.time.LocalDate TypeDate, java.time.LocalTime TypeTimeInMillis, java.time.LocalTime TypeTimeInMicros, java.time.Instant TypeTimestampInMillis, java.lang.CharSequence TypeStringTimestampInMillis) {
     this.TypeBoolean = TypeBoolean;
     this.TypeInt = TypeInt;
     this.TypeLong = TypeLong;
@@ -167,7 +167,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
     case 3: TypeFloat = (java.lang.Float)value$; break;
     case 4: TypeDouble = (java.lang.Double)value$; break;
     case 5: TypeString = (java.lang.CharSequence)value$; break;
-    case 6: TypeBytesDecimal = (java.nio.ByteBuffer)value$; break;
+    case 6: TypeBytesDecimal = (java.math.BigDecimal)value$; break;
     case 7: TypeDate = (java.time.LocalDate)value$; break;
     case 8: TypeTimeInMillis = (java.time.LocalTime)value$; break;
     case 9: TypeTimeInMicros = (java.time.LocalTime)value$; break;
@@ -283,7 +283,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'TypeBytesDecimal' field.
    * @return The value of the 'TypeBytesDecimal' field.
    */
-  public java.nio.ByteBuffer getTypeBytesDecimal() {
+  public java.math.BigDecimal getTypeBytesDecimal() {
     return TypeBytesDecimal;
   }
 
@@ -292,7 +292,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'TypeBytesDecimal' field.
    * @param value the value to set.
    */
-  public void setTypeBytesDecimal(java.nio.ByteBuffer value) {
+  public void setTypeBytesDecimal(java.math.BigDecimal value) {
     this.TypeBytesDecimal = value;
   }
 
@@ -428,7 +428,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
     private java.lang.Float TypeFloat;
     private java.lang.Double TypeDouble;
     private java.lang.CharSequence TypeString;
-    private java.nio.ByteBuffer TypeBytesDecimal;
+    private java.math.BigDecimal TypeBytesDecimal;
     private java.time.LocalDate TypeDate;
     private java.time.LocalTime TypeTimeInMillis;
     private java.time.LocalTime TypeTimeInMicros;
@@ -796,7 +796,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'TypeBytesDecimal' field.
       * @return The value.
       */
-    public java.nio.ByteBuffer getTypeBytesDecimal() {
+    public java.math.BigDecimal getTypeBytesDecimal() {
       return TypeBytesDecimal;
     }
 
@@ -806,7 +806,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'TypeBytesDecimal'.
       * @return This builder.
       */
-    public io.datadynamics.template.avro.model.types2.DataTypes2.Builder setTypeBytesDecimal(java.nio.ByteBuffer value) {
+    public io.datadynamics.template.avro.model.types2.DataTypes2.Builder setTypeBytesDecimal(java.math.BigDecimal value) {
       validate(fields()[6], value);
       this.TypeBytesDecimal = value;
       fieldSetFlags()[6] = true;
@@ -1043,7 +1043,7 @@ public class DataTypes2 extends org.apache.avro.specific.SpecificRecordBase impl
         record.TypeFloat = fieldSetFlags()[3] ? this.TypeFloat : (java.lang.Float) defaultValue(fields()[3]);
         record.TypeDouble = fieldSetFlags()[4] ? this.TypeDouble : (java.lang.Double) defaultValue(fields()[4]);
         record.TypeString = fieldSetFlags()[5] ? this.TypeString : (java.lang.CharSequence) defaultValue(fields()[5]);
-        record.TypeBytesDecimal = fieldSetFlags()[6] ? this.TypeBytesDecimal : (java.nio.ByteBuffer) defaultValue(fields()[6]);
+        record.TypeBytesDecimal = fieldSetFlags()[6] ? this.TypeBytesDecimal : (java.math.BigDecimal) defaultValue(fields()[6]);
         record.TypeDate = fieldSetFlags()[7] ? this.TypeDate : (java.time.LocalDate) defaultValue(fields()[7]);
         record.TypeTimeInMillis = fieldSetFlags()[8] ? this.TypeTimeInMillis : (java.time.LocalTime) defaultValue(fields()[8]);
         record.TypeTimeInMicros = fieldSetFlags()[9] ? this.TypeTimeInMicros : (java.time.LocalTime) defaultValue(fields()[9]);

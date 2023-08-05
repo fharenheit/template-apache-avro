@@ -44,10 +44,9 @@ public class DataTypes2AvroGenerator {
                 .setTypeTimeInMillis(LocalTime.now())
                 .setTypeTimestampInMillis(Instant.now())
                 .setTypeStringTimestampInMillis("2022-11-11 11:11:11.111")
-                .setTypeBytesDecimal(_toByteBuffer(11.11))
+                .setTypeBytesDecimal(new BigDecimal("11.11"))
                 .build();
 
-        System.out.println(t1.getSchema().toString());
         DatumWriter<DataTypes2> datumWriter = new SpecificDatumWriter<>(DataTypes2.class);
         DataFileWriter<DataTypes2> dataFileWriter = new DataFileWriter<>(datumWriter);
         dataFileWriter.create(t1.getSchema(), new File("datatypes2.avro"));
@@ -68,9 +67,71 @@ public class DataTypes2AvroGenerator {
         DataTypes2 type = null;
         while (dataFileReader.hasNext()) {
             type = dataFileReader.next(type);
-            System.out.println(type);
+            System.out.println(formatJSONStr(type.toString(), 4));
+
+            /*
+                {
+                    "TypeBoolean": false,
+                    "TypeInt": 1,
+                    "TypeLong": 123123,
+                    "TypeFloat": 123123.0,
+                    "TypeDouble": 3.14,
+                    "TypeString": "Hello World",
+                    "TypeBytesDecimal": 11.11,
+                    "TypeDate": "2023-08-06",
+                    "TypeTimeInMillis": "08:45:12.545",
+                    "TypeTimeInMicros": "08:45:12.545589",
+                    "TypeTimestampInMillis": "2023-08-05T23:45:12.545Z",
+                    "TypeStringTimestampInMillis": "2022-11-11 11:11:11.111"
+                }
+             */
         }
     }
+
+    public static String formatJSONStr(final String json_str, final int indent_width) {
+        final char[] chars = json_str.toCharArray();
+        final String newline = System.lineSeparator();
+
+        String ret = "";
+        boolean begin_quotes = false;
+
+        for (int i = 0, indent = 0; i < chars.length; i++) {
+            char c = chars[i];
+
+            if (c == '\"') {
+                ret += c;
+                begin_quotes = !begin_quotes;
+                continue;
+            }
+
+            if (!begin_quotes) {
+                switch (c) {
+                    case '{':
+                    case '[':
+                        ret += c + newline + String.format("%" + (indent += indent_width) + "s", "");
+                        continue;
+                    case '}':
+                    case ']':
+                        ret += newline + ((indent -= indent_width) > 0 ? String.format("%" + indent + "s", "") : "") + c;
+                        continue;
+                    case ':':
+                        ret += c + " ";
+                        continue;
+                    case ',':
+                        ret += c + newline + (indent > 0 ? String.format("%" + indent + "s", "") : "");
+                        continue;
+                    default:
+                        if (Character.isWhitespace(c)) continue;
+                }
+            }
+
+            ret += c + (c == '\\' ? "" + chars[++i] : "");
+        }
+
+        return ret;
+    }
+
+/*
 
     public static ByteBuffer _toByteBuffer(double value) {
         return new Conversions.DecimalConversion().toBytes(
@@ -85,4 +146,5 @@ public class DataTypes2AvroGenerator {
         BigDecimal bigDecimal = new BigDecimal(value, MathContext.DECIMAL32).setScale(((LogicalTypes.Decimal) type).getScale(), BigDecimal.ROUND_HALF_EVEN);
         return ByteBuffer.wrap(bigDecimal.unscaledValue().toByteArray());
     }
+*/
 }

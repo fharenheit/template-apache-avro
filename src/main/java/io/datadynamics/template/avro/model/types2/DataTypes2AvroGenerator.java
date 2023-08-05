@@ -1,7 +1,5 @@
 package io.datadynamics.template.avro.model.types2;
 
-import org.apache.avro.Conversions;
-import org.apache.avro.LogicalType;
 import org.apache.avro.LogicalTypes;
 import org.apache.avro.Schema;
 import org.apache.avro.data.TimeConversions;
@@ -14,8 +12,6 @@ import org.apache.avro.specific.SpecificDatumWriter;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.nio.ByteBuffer;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -42,7 +38,7 @@ public class DataTypes2AvroGenerator {
                 .setTypeString("Hello World")
                 .setTypeTimeInMicros(LocalTime.now())
                 .setTypeTimeInMillis(LocalTime.now())
-                .setTypeTimestampInMillis(Instant.now())
+                .setTypeTimestampInMillis(Instant.now()) // Only GMT
                 .setTypeStringTimestampInMillis("2022-11-11 11:11:11.111")
                 .setTypeBytesDecimal(new BigDecimal("11.11"))
                 .build();

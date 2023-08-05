@@ -1,5 +1,5 @@
 {
-  "namespace": "io.datadynamics.template.avro.model",
+  "namespace": "io.datadynamics.template.avro.model.types",
   "type": "record",
   "name": "TestTypes",
   "fields": [

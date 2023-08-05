@@ -1,0 +1,63 @@
+{
+  "namespace": "io.datadynamics.template..avro.model",
+  "type": "record",
+  "name": "TestTypes",
+  "fields": [
+    {"name": "typeBoolean", "type": "boolean"},
+    {"name": "typeInt", "type": "int"},
+    {"name": "typeLong", "type": "long"},
+    {"name": "typeFloat", "type": "float"},
+    {"name": "typeDouble", "type": "double"},
+    {"name": "typeBytes", "type": "bytes"},
+    {"name": "typeString", "type": "string"},
+    {
+      "name": "typeRecord",
+      "type": {
+        "type": "record",
+        "name": "typeRecord",
+        "fields": [
+          {"name": "typeRecordA", "type": "long"},
+          {"name": "typeRecordB", "type": "string"}
+        ]
+      }
+    },
+    {
+      "name": "Suit",
+      "type": {
+        "name": "Suit",
+        "type": "enum",
+        "symbols": ["SPADES", "HEARTS", "DIAMONDS", "CLUBS"]
+      }
+    },
+    {
+      "name": "typeArray",
+      "type": {
+        "name": "typeArray",
+        "type": "array",
+        "items": "long"
+      }
+    },
+    {
+      "name": "typeMap",
+      "type": {
+        "name": "typeMap",
+        "type": "map",
+        "values": "bytes"
+      }
+    },
+    {
+      "name": "md5",
+      "type": {
+        "type": "fixed",
+        "size": 16,
+        "name": "md5"
+      }
+    },
+    {"name": "typeBytesDecimal", "type": "bytes", "logicalType": "decimal", "precision": 4, "scale": 2},
+    {"name": "aDate", "type": "int", "logicalType": "date"},
+    {"name": "aTimeInMillis", "type": "int", "logicalType": "time-millis"},
+    {"name": "aTimeInMicros", "type": "long", "logicalType": "time-micros"},
+    {"name": "aTimestampInMillis", "type": "long", "logicalType": "timestamp-millis"},
+    {"name": "aTimestampInMicros", "type": "long", "logicalType": "timestamp-micros"}
+  ]
+}
